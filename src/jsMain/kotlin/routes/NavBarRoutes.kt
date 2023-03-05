@@ -8,27 +8,29 @@ import react.FC
 import react.Props
 import react.create
 import react.router.Route
+import react.router.Routes
 
 val navBarRouting = FC<Props>{
+    Routes{
+        Route{
+            element = homeComponent.create()
+            path = "/home"
+        }
+        Route{
+            element = aboutUsComponent.create()
+            path = "/about"
+        }
 
-    Route{
-        element = homeComponent.create()
-        path = "/home"
-    }
-    Route{
-        element = aboutUsComponent.create()
-        path = "/about"
-    }
+        Route{
+            element = communityComponent.create()
+            path = "/community"
+        }
 
-    Route{
-        element = communityComponent.create()
-        path = "/community"
-    }
+        Route{
+            element = contactComponent.create()
+            path = "/contact"
+        }
 
-    Route{
-        element = contactComponent.create()
-        path = "/contact"
     }
-
 
 }

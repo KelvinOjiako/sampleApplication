@@ -7,29 +7,19 @@ import io.ktor.server.html.*
 import io.ktor.server.http.content.*
 import io.ktor.server.netty.Netty
 import io.ktor.server.routing.*
-import kotlinx.html.*
+import org.example.application.pages.index
+import org.example.application.routes.navBarBackendRoute
 
-fun HTML.index() {
-    head {
-        title("Hello from Ktor!")
-    }
-    body {
-        div {
-            +"Hello from Ktor"
-        }
-        div {
-            id = "root"
-        }
-        script(src = "/static/sampleApplication.js") {}
-    }
-}
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "127.0.0.1") {
         routing {
             get("/") {
-                call.respondHtml(HttpStatusCode.OK, HTML::index)
+                call.respondHtml(HttpStatusCode.OK){
+                    index("The Void Century!!!", "What do you think happened in the original Void Century??? Tune in!!")
+                }
             }
+            navBarBackendRoute()
             static("/static") {
                 resources()
             }

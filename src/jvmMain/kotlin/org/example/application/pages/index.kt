@@ -10,7 +10,7 @@ fun HTML.index( heading: String,  childBody: String){
     body {
         div{
             + childBody
-            id = "id"
         }
+        script(src = "/static/sampleApplication.js") {}
     }
 }
